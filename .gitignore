@@ -1,0 +1,64 @@
+# Unreal Engine
+
+# Visual Studio / IDEs
+.vs/
+.vscode/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Compiled binaries
+Binaries/
+Plugins/*/Binaries/
+
+# Intermediate / generated
+Intermediate/
+Plugins/*/Intermediate/
+DerivedDataCache/
+Build/
+
+# Local user / editor data
+Saved/
+*.log
+
+# Crash reports
+crashinfo/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Packaged builds
+Build/Windows/
+Build/Linux/
+Build/Mac/
+Packages/
+Archives/
+
+# Jetbrains
+.idea/
+*.dotSettings
+
+# Local sensitive / machine-specific
+*.user
+*.userprefs
+*.xcworkspace
+xcuserdata/
+
+# Android distribution signing (never commit private keys / passwords)
+*.keystore
+*.jks
+*.p12
+key.properties
+**/key.properties
+Build/Android/
+**/signing-credentials*.txt
+**/SigningConfig.xml
+Config/UserEngine.ini
+Config/UserGame.ini
+Config/UserInput.ini
+Config/UserEditorPerProjectUserSettings.ini
