@@ -1,0 +1,15 @@
+RedHood — Partner Center (tracked checklist, no identity values)
+================================================================
+Identity details live ONLY in Config\UserEngine.ini (gitignored).
+Template: Config\UserEngine.ini.example
+Local scratch copy (optional): Tools\GDK\PartnerCenter.local.txt (gitignored)
+
+Setup
+  [ ] Create Win32 / Microsoft Store game product in Partner Center
+  [ ] Copy identity fields into Config\UserEngine.ini from Partner Center
+       Game setup -> Identity details
+  [ ] Package via Tools\GDK\Phase1-PackageSubmit.checklist.txt
+  [ ] Upload .msixvc yourself in Partner Center
+  [ ] Enroll ID@Xbox if you need Xbox / full Xbox services
+
+Do not paste Title ID / Store ID / MSA / SCID / Publisher CN into tracked files.

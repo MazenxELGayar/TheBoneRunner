@@ -20,6 +20,17 @@ Plugins/*/Intermediate/
 DerivedDataCache/
 Build/
 
+# Keep GDK store packaging assets tracked (override Build/ ignore)
+!Build/Windows/
+!Build/Windows/Application.ico
+!Build/Windows/MSGaming/
+!Build/Windows/MSGaming/Resources/
+!Build/Windows/MSGaming/Resources/**
+!Build/Win64/
+!Build/Win64/MSGaming/
+!Build/Win64/MSGaming/Resources/
+!Build/Win64/MSGaming/Resources/**
+
 # Local user / editor data
 Saved/
 *.log
@@ -32,12 +43,24 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Packaged builds
-Build/Windows/
-Build/Linux/
-Build/Mac/
+# Packaged builds / archives
 Packages/
 Archives/
+Build/Linux/
+Build/Mac/
+Build/Android/
+
+# GDK / Microsoft Store package artifacts (never commit)
+*.msixvc
+*.xvc
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.phd
+*_appxmanifest.xml
+Validator_*.xml
+clear.*.msixvc
 
 # Jetbrains
 .idea/
@@ -62,3 +85,10 @@ Config/UserEngine.ini
 Config/UserGame.ini
 Config/UserInput.ini
 Config/UserEditorPerProjectUserSettings.ini
+Config/UserEditor.ini
+Config/*/UserEngine.ini
+Config/*/UserGame.ini
+
+# Local Partner Center identity scratch (never commit)
+Tools/GDK/PartnerCenter.local.txt
+Tools/GDK/*.local.txt

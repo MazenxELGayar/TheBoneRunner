@@ -1,0 +1,53 @@
+RedHood — Make the Microsoft Store package yourself
+====================================================
+
+Store identity is still empty. Packaging needs Partner Center fields in
+Config\UserEngine.ini (gitignored). Create the Store product first.
+
+0) One-time checks
+   - GameDK points at F:\Unreal Engine\Microsoft\GDK\GDK_2604.2.7849\
+   - Config\UserEngine.ini has Partner Center IDs filled (copy from
+     Config\UserEngine.ini.example if missing)
+   - Close Unreal Editor (Live Coding blocks UAT builds) OR use Ctrl+Alt+F11
+   - Put store tile art in Content, then run Generate-MSGamingResources.ps1
+
+1) Package (pick one)
+
+   A) Script (recommended)
+      Double-click / run:
+        Tools\GDK\Package-Win64-MSIXVC.bat
+      Faster rebuild after a successful cook:
+        Tools\GDK\Package-Win64-MSIXVC.bat -skipbuild -skipcook
+      (only if content/maps did not change)
+
+   B) Editor
+      Open RedHood.uproject
+      Platforms -> Windows -> Package Project
+      Shipping / For Distribution
+      With MSGameStore enabled this produces .msixvc
+
+2) Find the package
+   Primary:
+     Saved\Packages\Windows\MSGameStore\Shipping\*.msixvc
+   Copy (if script archives):
+     Packages\Win64_GDK\
+
+3) Local install test
+   Double-click Tools\GDK\Install-Win64-MSIXVC.bat
+   It asks: "Where do you want to install the game?"
+   Type any folder, for example F:\Games\RedHood
+   Enable Windows Developer Mode if wdapp asks.
+   The .msixvc is copied next to that folder as Installation; the game installs to the path you typed.
+   Then: wdapp list  /  wdapp launch <AUMID>
+
+4) Upload yourself
+   Partner Center -> Red Hood -> Packages -> upload the .msixvc
+   Finish store listing / age rating / privacy, then Review and publish
+
+Notes
+  - This Partner Center product is Win32 Microsoft Store. Xbox / full Xbox services
+    still need ID@Xbox + concept approval.
+  - Store logos go in Build\Windows\MSGaming\Resources\
+    To regenerate (once you have Icon.png / splash art):
+      Tools\GDK\Generate-MSGamingResources.ps1
+  - Never commit Config\UserEngine.ini (Partner Center identity).

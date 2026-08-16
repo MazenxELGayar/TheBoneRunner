@@ -1,0 +1,18 @@
+; Template for Config/UserEngine.ini (gitignored).
+; Copy identity fields here AFTER you create the Microsoft Store game in Partner Center.
+; Game setup -> Identity details. Leave blank until then.
+
+[/Script/MSGamingSupport.MSGamingSettings]
+PackageName=
+PublisherName=
+PublisherDisplayName=MazenX
+DefaultDisplayName=Red Hood
+StoreId=
+TitleId=
+PrimaryServiceConfigId=
+MSAAppId=
+PackageVersion=1.0.0.0
+
+[OnlineSubsystemGDK]
+bEnabled=True
+PrimaryServiceConfigId=

@@ -1,0 +1,24 @@
+RedHood — Phase 2 Xbox Series X|S (after Phase 1 PC package works)
+====================================================================
+
+Prerequisites (outside this repo)
+  [ ] ID@Xbox console track approved (or Microsoft contact in progress)
+  [ ] Request GDK Platform Extensions / UE GDK group access (aka.ms/ue_gdk_access)
+  [ ] Install GDK with Xbox Extensions (GDKx) — PC PGDK alone is not enough for XSX
+  [ ] Prefer UE 5.8 from GitHub source + Platform Extensions; run GenerateProjectFiles
+  [ ] Obtain Xbox Series X|S development kit (and XB1 kit if targeting One)
+
+Engine / project
+  [ ] Confirm Platforms dropdown shows XSX (and XB1) — keep PC on Win64 + MSGameStore (NOT WinGDK)
+  [ ] OnlineSubsystemGDK / Xbox Common GameInput / GDK Virtual Keyboard as required by XR
+  [ ] Project Settings for XSX: same Partner Center product, console SKUs
+  [ ] Separate cook for XSX; package to .xvc; deploy to kit
+
+XR / certification
+  [ ] Gamepad-first UX, safe areas, no keyboard-only flows
+  [ ] Sign-in, profile, suspend/resume, cloud saves
+  [ ] Achievements.json under Platforms/GDK/Config/OSS/ if shipping achievements
+  [ ] Submit console package; pass Xbox Requirements certification
+
+UAT example (only after Extensions installed):
+  RunUAT BuildCookRun -project="F:\Unreal Engine\Projects\RedHood\RedHood.uproject" -platform=XSX -clientconfig=Shipping -build -cook -stage -pak -package -archive
