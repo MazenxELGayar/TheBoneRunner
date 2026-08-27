@@ -9,7 +9,7 @@ A 2D Unreal Engine game. Fight skeletons, stay out of the traps, and make it thr
 - Watch the floor — spike traps and slicers will end the run
 - Reach the end to win
 
-Unreal Engine 5.8 project. Open `TheBoneRun.uproject`. The game starts on the main menu.
+Unreal Engine 5.8 project. Open `TheBoneRunner.uproject`. The game starts on the main menu.
 
 ## Requirements
 
@@ -23,11 +23,11 @@ These files are **not** committed:
 
 | File | Purpose |
 |------|---------|
-| `Build/Android/thebonerun-release.keystore` | Release signing keystore |
+| `Build/Android/thebonerunner-release.keystore` | Release signing keystore |
 | `Build/Android/key.properties` | Keystore passwords + alias |
 | `Config/UserEngine.ini` | UE signing passwords + local SDK/NDK/JDK paths |
 
-If you still have an older `redhood-release.keystore` locally, rename it to `thebonerun-release.keystore`. The key alias inside the keystore stays `redhood` so existing signing still works.
+If you still have an older `thebonerun-release.keystore` locally, rename it to `thebonerunner-release.keystore`. The key alias inside the keystore stays `redhood` so existing signing still works.
 
 `Config/DefaultEngine.ini` stores non-secret Android settings (`PackageName`, `KeyStore` filename, `KeyAlias`, version).
 

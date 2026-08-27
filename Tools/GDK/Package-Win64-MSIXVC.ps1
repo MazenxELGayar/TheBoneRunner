@@ -9,9 +9,9 @@ $Host.UI.RawUI.WindowTitle = "The Bone Runner Win64 MSIXVC package"
 
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $UeRoot = "F:\Unreal Engine\UE_5.8"
-$Project = Join-Path $ProjectRoot "TheBoneRun.uproject"
+$Project = Join-Path $ProjectRoot "TheBoneRunner.uproject"
 $Archive = Join-Path $ProjectRoot "Packages\Win64_GDK"
-$Log = Join-Path $env:TEMP "TheBoneRun_Package_Win64_GDK.log"
+$Log = Join-Path $env:TEMP "TheBoneRunner_Package_Win64_GDK.log"
 $RunUat = Join-Path $UeRoot "Engine\Build\BatchFiles\RunUAT.bat"
 $MsixOut = Join-Path $ProjectRoot "Saved\Packages\Windows\MSGameStore\Shipping"
 $Pf86 = ${env:ProgramFiles(x86)}
@@ -77,7 +77,7 @@ Write-Host "Progress updates while UAT runs. Cook can take a long time."
 Write-Host "Store IDs must be filled in Config\UserEngine.ini before packaging will succeed."
 Write-Host ""
 
-$wrap = Join-Path $env:TEMP "TheBoneRun_Package_Win64_GDK_run.cmd"
+$wrap = Join-Path $env:TEMP "TheBoneRunner_Package_Win64_GDK_run.cmd"
 $argLine = @(
     "BuildCookRun",
     "-project=`"$Project`"",

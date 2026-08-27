@@ -21,4 +21,4 @@ XR / certification
   [ ] Submit console package; pass Xbox Requirements certification
 
 UAT example (only after Extensions installed):
-  RunUAT BuildCookRun -project="F:\Unreal Engine\Projects\TheBoneRun\TheBoneRun.uproject" -platform=XSX -clientconfig=Shipping -build -cook -stage -pak -package -archive
+  RunUAT BuildCookRun -project="F:\Unreal Engine\Projects\TheBoneRun\TheBoneRunner.uproject" -platform=XSX -clientconfig=Shipping -build -cook -stage -pak -package -archive

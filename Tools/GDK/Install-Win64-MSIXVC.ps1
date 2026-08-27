@@ -32,7 +32,7 @@ function Find-LatestMsixvc([string]$Dir) {
 
 function Read-Folder([string]$Prompt) {
     Write-Host $Prompt
-    Write-Host "Example: F:\Games\TheBoneRun"
+    Write-Host "Example: F:\Games\TheBoneRunner"
     $raw = Read-Host "Folder"
     $raw = $raw.Trim().Trim('"')
     if ([string]::IsNullOrWhiteSpace($raw)) { return $null }
@@ -78,7 +78,7 @@ if (-not $InstallFolder) {
 $InstallFolder = [IO.Path]::GetFullPath($InstallFolder)
 $drive = ([IO.Path]::GetPathRoot($InstallFolder)).TrimEnd("\")
 if ($drive.Length -lt 2) {
-    Write-Host "ERROR: install folder must be a local drive path (for example F:\Games\TheBoneRun)." -ForegroundColor Red
+    Write-Host "ERROR: install folder must be a local drive path (for example F:\Games\TheBoneRunner)." -ForegroundColor Red
     Read-Host "Press Enter to close" | Out-Null
     exit 1
 }

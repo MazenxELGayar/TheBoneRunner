@@ -1,0 +1,35 @@
+Privacy Policy — The Bone Runner
+================================
+
+Last updated: 27 August 2026
+Developer: MazenX
+
+This policy applies to the Android game The Bone Runner (package com.mazenx.thebonerunner).
+
+What the game is
+  A single-player 2D game. You fight skeletons, avoid traps, and try to win.
+
+Data we collect
+  The Bone Runner does not require an account and does not include in-app purchases, ads, or analytics SDKs from us.
+
+  The game does not collect your name, email, or contacts.
+
+Google Play
+  Google Play may collect standard install and crash information under Google’s own policies when you download or update the app from Play.
+
+Device permissions
+  The game does not need contacts, microphone, camera, or location.
+
+Children
+  The game is a general-audience action platformer. We do not knowingly collect personal data from children.
+
+Changes
+  If this policy changes, we will update the date at the top.
+
+Contact
+  MazenX — use the developer contact email on the Google Play listing.
+
+Public URL for Play Console
+  After you push this file, you can use:
+  https://github.com/MazenxELGayar/TheBoneRunner/blob/main/Tools/PlayStore/PrivacyPolicy.txt
+  The repo must be public, or host this text on any public HTTPS page.

@@ -1,0 +1,31 @@
+The Bone Runner — Google Play upload
+====================================
+
+In the project (done)
+  [x] Display name: The Bone Runner
+  [x] Landscape orientation
+  [x] App Bundle (AAB), Shipping, For Distribution
+  [x] Package com.mazenx.thebonerunner  version 1.0  store version 1
+  [x] Local release keystore
+  [x] Icon 512, feature graphic 1024x500
+  [x] Phone / tablet listing images in Tools\PlayStore\Assets
+  [x] Listing copy in Tools\PlayStore\Listing.txt
+  [x] Privacy policy draft in Tools\PlayStore\PrivacyPolicy.txt
+
+You still do in Play Console
+  [ ] Create the Android app (package must match com.mazenx.thebonerunner)
+  [ ] Store listing: paste Listing.txt, upload Assets graphics
+  [ ] Privacy policy URL (publish PrivacyPolicy.txt first)
+  [ ] Data safety: no account, no IAP, no ads (declare accordingly)
+  [ ] Content rating questionnaire
+  [ ] Target audience / ads declaration / contact email
+  [ ] Upload the signed .aab from an Android Shipping package
+
+Package the .aab
+  Close Unreal Editor (Live Coding blocks UAT), then:
+    Tools\Android\Package-AAB.bat
+  Or in Editor: Platforms -> Android -> Package Project (Shipping)
+
+Output to look for
+  Saved\StagedBuilds\Android\*.aab
+  or the folder you chose in the Editor package dialog

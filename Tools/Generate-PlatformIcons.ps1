@@ -87,9 +87,10 @@ $IconPack = Join-Path $Images "Icons"
 Write-Host ""
 Write-Host "Windows / editor icon pack (Content\Assets\Images\Icons)"
 $icoPngs = @()
-foreach ($size in @(16, 24, 32, 36, 48, 64, 72, 96, 128, 144, 192, 256, 512)) {
-    $png = Join-Path $IconPack ("{0}.png" -f $size)
+foreach ($size in @(16, 20, 24, 32, 36, 40, 48, 64, 72, 96, 128, 144, 192, 256, 512, 1024)) {
+    $png = Join-Path $IconPack ("{0}x{0}.png" -f $size)
     Save-CoverPng $IconSrc $png $size $size 0.5
+    Copy-Item -LiteralPath $png -Destination (Join-Path $IconPack ("{0}.png" -f $size)) -Force
     if ($size -in @(16, 24, 32, 48, 64, 128, 256)) { $icoPngs += $png }
 }
 
@@ -145,7 +146,58 @@ Save-CoverPng $SplashSrc (Join-Path $AndroidRes "drawable\downloadimagev.png") 1
 Save-CoverPng $IconSrc (Join-Path $Images "PlayStore\HiResIcon512.png") 512 512
 Save-CoverPng $SplashSrc (Join-Path $Images "PlayStore\FeatureGraphic1024x500.png") 1024 500 0.5
 
+function Save-CoverJpeg([string]$Src, [string]$Dst, [int]$W, [int]$H, [double]$AnchorY = 0.5) {
+    $srcImg = [System.Drawing.Image]::FromFile($Src)
+    try {
+        $bmp = New-Object System.Drawing.Bitmap $W, $H, ([System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
+        $g = [System.Drawing.Graphics]::FromImage($bmp)
+        $g.Clear([System.Drawing.Color]::Black)
+        $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+        $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+        $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+        $g.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+        $scale = [Math]::Max($W / [double]$srcImg.Width, $H / [double]$srcImg.Height)
+        $dw = [int][Math]::Ceiling($srcImg.Width * $scale)
+        $dh = [int][Math]::Ceiling($srcImg.Height * $scale)
+        $x = [int](($W - $dw) / 2)
+        $y = [int](($H - $dh) * $AnchorY)
+        $g.DrawImage($srcImg, $x, $y, $dw, $dh)
+        $g.Dispose()
+        $dir = Split-Path $Dst -Parent
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+        $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
+        $ep = New-Object System.Drawing.Imaging.EncoderParameters 1
+        $ep.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality, [long]92)
+        $bmp.Save($Dst, $codec, $ep)
+        $bmp.Dispose()
+    }
+    finally { $srcImg.Dispose() }
+    Write-Host ("  {0,4}x{1,-4}  {2}" -f $W, $H, $Dst.Substring($Project.Length + 1))
+}
+
+Write-Host ""
+Write-Host "Google Play Console listing graphics"
+$Play = Join-Path $Project "Tools\PlayStore\Assets"
+New-Item -ItemType Directory -Force -Path $Play | Out-Null
+Copy-Item -LiteralPath (Join-Path $Images "PlayStore\HiResIcon512.png") -Destination (Join-Path $Play "HiResIcon512.png") -Force
+Copy-Item -LiteralPath (Join-Path $Images "PlayStore\FeatureGraphic1024x500.png") -Destination (Join-Path $Play "FeatureGraphic1024x500.png") -Force
+$phone = Join-Path $Play "Phone"
+$tab7 = Join-Path $Play "Tablet7"
+$tab10 = Join-Path $Play "Tablet10"
+Save-CoverJpeg $SplashSrc (Join-Path $phone "01.jpg") 1920 1080 0.45
+Save-CoverJpeg $SplashSrc (Join-Path $phone "02.jpg") 1920 1080 0.15
+Save-CoverJpeg $SplashSrc (Join-Path $phone "03.jpg") 1920 1080 0.85
+Save-CoverJpeg $IconSrc   (Join-Path $phone "04.jpg") 1920 1080 0.35
+Save-CoverJpeg $IconSrc   (Join-Path $phone "05.jpg") 1920 1080 0.55
+Save-CoverJpeg $IconSrc   (Join-Path $phone "06.jpg") 1920 1080 0.0
+Save-CoverJpeg $SplashSrc (Join-Path $phone "07.jpg") 1920 1080 0.6
+Save-CoverJpeg $IconSrc   (Join-Path $phone "08.jpg") 1920 1080 0.7
+Save-CoverJpeg $SplashSrc (Join-Path $tab7 "01.jpg") 1920 1200 0.45
+Save-CoverJpeg $IconSrc   (Join-Path $tab7 "02.jpg") 1920 1200 0.4
+Save-CoverJpeg $SplashSrc (Join-Path $tab10 "01.jpg") 2560 1600 0.45
+Save-CoverJpeg $IconSrc   (Join-Path $tab10 "02.jpg") 2560 1600 0.4
+
 Write-Host ""
 Write-Host "Done."
-Write-Host "Assign Android icons in Unreal: Project Settings -> Android -> App Icons (36/48/72/96/144/192)."
+Write-Host "Play Console upload pack: Tools\PlayStore\"
 Write-Host "Windows exe icon is Build\Windows\Application.ico (used on the next Shipping build)."

@@ -1,0 +1,38 @@
+Google Play Console — copy/paste listing
+========================================
+
+App name (30)
+The Bone Runner
+
+Short description (80)
+Fight skeletons, dodge traps, and survive the dungeon run!
+
+Full description (4000)
+The Bone Runner is a 2D action platformer set in a dark dungeon.
+
+Run, jump, and fight your way through skeleton warriors. Watch every step — spike pits, slicers, and hanging traps will end the run if you get careless.
+
+Clear the dungeon and win.
+
+Features:
+- Fast 2D combat against skeleton enemies
+- Deadly traps: spikes, slicers, and more
+- Jump, attack, and stay on the move
+- Pixel-art dungeon atmosphere
+
+Graphic assets (this folder)
+  Tools/PlayStore/Assets/HiResIcon512.png          App icon 512x512
+  Tools/PlayStore/Assets/FeatureGraphic1024x500.png Feature graphic
+  Tools/PlayStore/Assets/Phone/01.jpg … 08.jpg     Phone screenshots (upload at least 2)
+  Tools/PlayStore/Assets/Tablet7/                  7-inch screenshots
+  Tools/PlayStore/Assets/Tablet10/                 10-inch screenshots
+
+Category
+Game > Action  (or Arcade)
+
+Contact
+Developer: MazenX
+Default language: English
+
+Package name (do not change after first upload)
+com.mazenx.thebonerunner
