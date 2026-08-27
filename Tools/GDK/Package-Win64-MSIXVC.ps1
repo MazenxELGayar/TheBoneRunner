@@ -1,17 +1,17 @@
-# Live progress wrapper for RedHood Win64 MSIXVC packaging.
+# Live progress wrapper for The Bone Run Win64 MSIXVC packaging.
 param(
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$UatExtraArgs
 )
 
 $ErrorActionPreference = "Continue"
-$Host.UI.RawUI.WindowTitle = "RedHood Win64 MSIXVC package"
+$Host.UI.RawUI.WindowTitle = "The Bone Run Win64 MSIXVC package"
 
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $UeRoot = "F:\Unreal Engine\UE_5.8"
-$Project = Join-Path $ProjectRoot "RedHood.uproject"
+$Project = Join-Path $ProjectRoot "TheBoneRun.uproject"
 $Archive = Join-Path $ProjectRoot "Packages\Win64_GDK"
-$Log = Join-Path $env:TEMP "RedHood_Package_Win64_GDK.log"
+$Log = Join-Path $env:TEMP "TheBoneRun_Package_Win64_GDK.log"
 $RunUat = Join-Path $UeRoot "Engine\Build\BatchFiles\RunUAT.bat"
 $MsixOut = Join-Path $ProjectRoot "Saved\Packages\Windows\MSGameStore\Shipping"
 $Pf86 = ${env:ProgramFiles(x86)}
@@ -43,7 +43,7 @@ foreach ($a in $UatExtraArgs) {
 }
 
 Write-Host "========================================"
-Write-Host "RedHood - Package Win64 MSIXVC"
+Write-Host "The Bone Run - Package Win64 MSIXVC"
 Write-Host "========================================"
 Write-Host "UE_ROOT=$UeRoot"
 Write-Host "PROJECT=$Project"
@@ -77,7 +77,7 @@ Write-Host "Progress updates while UAT runs. Cook can take a long time."
 Write-Host "Store IDs must be filled in Config\UserEngine.ini before packaging will succeed."
 Write-Host ""
 
-$wrap = Join-Path $env:TEMP "RedHood_Package_Win64_GDK_run.cmd"
+$wrap = Join-Path $env:TEMP "TheBoneRun_Package_Win64_GDK_run.cmd"
 $argLine = @(
     "BuildCookRun",
     "-project=`"$Project`"",
@@ -167,7 +167,7 @@ try {
         $status = "{0}  {1,3}%  {2,-16}  {3}  {4}" -f $bar, $pct, $stage, $elapsed, $spinChar
         $detail = Short-Line $lastLine
 
-        Write-Progress -Activity "Packaging RedHood for Microsoft Store (.msixvc)" -Status $status -PercentComplete $pct -CurrentOperation $detail
+        Write-Progress -Activity "Packaging The Bone Run for Microsoft Store (.msixvc)" -Status $status -PercentComplete $pct -CurrentOperation $detail
         Write-Host ("`r{0}  {1}" -f $status, $detail).PadRight(150) -NoNewline
         Start-Sleep -Milliseconds 500
     }
@@ -176,7 +176,7 @@ finally {
     if (-not $proc.HasExited) { $proc.WaitForExit() }
     Start-Sleep -Milliseconds 300
     Write-Host ""
-    Write-Progress -Activity "Packaging RedHood for Microsoft Store (.msixvc)" -Completed
+    Write-Progress -Activity "Packaging The Bone Run for Microsoft Store (.msixvc)" -Completed
 }
 
 $err = $proc.ExitCode

@@ -1,5 +1,5 @@
-RedHood — Make the Microsoft Store package yourself
-====================================================
+The Bone Run — Make the Microsoft Store package yourself
+========================================================
 
 Store identity is still empty. Packaging needs Partner Center fields in
 Config\UserEngine.ini (gitignored). Create the Store product first.
@@ -21,7 +21,7 @@ Config\UserEngine.ini (gitignored). Create the Store product first.
       (only if content/maps did not change)
 
    B) Editor
-      Open RedHood.uproject
+      Open TheBoneRun.uproject
       Platforms -> Windows -> Package Project
       Shipping / For Distribution
       With MSGameStore enabled this produces .msixvc
@@ -35,13 +35,13 @@ Config\UserEngine.ini (gitignored). Create the Store product first.
 3) Local install test
    Double-click Tools\GDK\Install-Win64-MSIXVC.bat
    It asks: "Where do you want to install the game?"
-   Type any folder, for example F:\Games\RedHood
+   Type any folder, for example F:\Games\TheBoneRun
    Enable Windows Developer Mode if wdapp asks.
    The .msixvc is copied next to that folder as Installation; the game installs to the path you typed.
    Then: wdapp list  /  wdapp launch <AUMID>
 
 4) Upload yourself
-   Partner Center -> Red Hood -> Packages -> upload the .msixvc
+   Partner Center -> The Bone Run -> Packages -> upload the .msixvc
    Finish store listing / age rating / privacy, then Review and publish
 
 Notes

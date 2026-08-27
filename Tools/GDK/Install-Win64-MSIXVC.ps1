@@ -1,11 +1,11 @@
-# Install RedHood .msixvc via wdapp. Asks where to put the game.
+# Install The Bone Run .msixvc via wdapp. Asks where to put the game.
 param(
     [string]$PackagePath,
     [string]$InstallFolder
 )
 
 $ErrorActionPreference = "Continue"
-$Host.UI.RawUI.WindowTitle = "RedHood GDK install"
+$Host.UI.RawUI.WindowTitle = "The Bone Run GDK install"
 
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $DefaultDir = Join-Path $ProjectRoot "Saved\Packages\Windows\MSGameStore\Shipping"
@@ -32,7 +32,7 @@ function Find-LatestMsixvc([string]$Dir) {
 
 function Read-Folder([string]$Prompt) {
     Write-Host $Prompt
-    Write-Host "Example: F:\Games\RedHood"
+    Write-Host "Example: F:\Games\TheBoneRun"
     $raw = Read-Host "Folder"
     $raw = $raw.Trim().Trim('"')
     if ([string]::IsNullOrWhiteSpace($raw)) { return $null }
@@ -47,7 +47,7 @@ $wdapp = Join-Path $env:GameDK "bin\wdapp.exe"
 if (-not (Test-Path -LiteralPath $wdapp)) { $wdapp = $GdkBin }
 
 Write-Host "========================================"
-Write-Host "RedHood - GDK local install"
+Write-Host "The Bone Run - GDK local install"
 Write-Host "========================================"
 Write-Host "wdapp: $wdapp"
 Write-Host ""
@@ -78,7 +78,7 @@ if (-not $InstallFolder) {
 $InstallFolder = [IO.Path]::GetFullPath($InstallFolder)
 $drive = ([IO.Path]::GetPathRoot($InstallFolder)).TrimEnd("\")
 if ($drive.Length -lt 2) {
-    Write-Host "ERROR: install folder must be a local drive path (for example F:\Games\RedHood)." -ForegroundColor Red
+    Write-Host "ERROR: install folder must be a local drive path (for example F:\Games\TheBoneRun)." -ForegroundColor Red
     Read-Host "Press Enter to close" | Out-Null
     exit 1
 }

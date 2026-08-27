@@ -17,7 +17,7 @@ foreach ($c in $IcoCandidates) {
 }
 
 function Find-GameFolders([string]$Root) {
-    $exe = Get-ChildItem -LiteralPath $Root -Recurse -Filter "RedHood.exe" -ErrorAction SilentlyContinue |
+    $exe = Get-ChildItem -LiteralPath $Root -Recurse -Filter "TheBoneRun.exe" -ErrorAction SilentlyContinue |
         Where-Object { $_.FullName -notmatch "vc_redist" } |
         Select-Object -First 1
     if (-not $exe) { return $null }
@@ -41,13 +41,13 @@ IconIndex=0
 
 $found = Find-GameFolders $GameRoot
 if (-not $found) {
-    Write-Host "Could not find RedHood.exe under $GameRoot" -ForegroundColor Yellow
+    Write-Host "Could not find TheBoneRun.exe under $GameRoot" -ForegroundColor Yellow
     exit 1
 }
 
 if ($IcoSrc) {
-    Copy-Item -LiteralPath $IcoSrc -Destination (Join-Path $found.Title "RedHood.ico") -Force
-    Set-FolderIcon $found.Title "RedHood.ico"
+    Copy-Item -LiteralPath $IcoSrc -Destination (Join-Path $found.Title "TheBoneRun.ico") -Force
+    Set-FolderIcon $found.Title "TheBoneRun.ico"
 } else {
     Write-Host "No Application.ico found — skipping folder icon. Add art later and re-run." -ForegroundColor Yellow
 }
@@ -55,22 +55,22 @@ if ($IcoSrc) {
 # Content is the payload folder — keep the default Explorer folder icon.
 
 $shell = New-Object -ComObject WScript.Shell
-$lnk = Join-Path $found.Title "Red Hood.lnk"
+$lnk = Join-Path $found.Title "The Bone Run.lnk"
 $sc = $shell.CreateShortcut($lnk)
 $sc.TargetPath = $found.Exe
 $sc.WorkingDirectory = $found.Content
 $sc.WindowStyle = 1
-$sc.Description = "Red Hood"
-if ($IcoSrc) { $sc.IconLocation = (Join-Path $found.Title "RedHood.ico") }
+$sc.Description = "The Bone Run"
+if ($IcoSrc) { $sc.IconLocation = (Join-Path $found.Title "TheBoneRun.ico") }
 $sc.Save()
 
-$uninstSrc = Join-Path $PSScriptRoot "Uninstall-RedHood.bat"
-$uninstDst = Join-Path $found.Title "Uninstall RedHood.bat"
+$uninstSrc = Join-Path $PSScriptRoot "Uninstall-TheBoneRun.bat"
+$uninstDst = Join-Path $found.Title "Uninstall TheBoneRun.bat"
 if (Test-Path -LiteralPath $uninstSrc) {
     Copy-Item -LiteralPath $uninstSrc -Destination $uninstDst -Force
     Write-Host "Uninstall: $uninstDst"
 }
 
 Write-Host "Shortcut: $lnk"
-Write-Host "Note: GDK encrypts RedHood.exe, so Explorer still shows a generic .exe icon. Use the shortcut."
+Write-Host "Note: GDK encrypts TheBoneRun.exe, so Explorer still shows a generic .exe icon. Use the shortcut."
 exit 0

@@ -1,10 +1,10 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title Uninstall Red Hood
+title Uninstall The Bone Run
 cd /d "%~dp0"
 
 echo ========================================
-echo Uninstall Red Hood
+echo Uninstall The Bone Run
 echo ========================================
 echo GDK installs are removed with wdapp, not Windows Settings -^> Apps.
 echo.
@@ -25,10 +25,10 @@ if not defined WDAPP (
 
 echo Using: "!WDAPP!"
 echo.
-echo Looking up installed Red Hood packages...
+echo Looking up installed The Bone Run packages...
 set "PFN="
 for /f "usebackq tokens=* delims=" %%A in (`"!WDAPP!" list 2^>nul`) do (
-  echo %%A | findstr /i /c:"RedHood" /c:"Red Hood" /c:"MazenX.RedHood" >nul
+  echo %%A | findstr /i /c:"TheBoneRun" /c:"The Bone Run" /c:"MazenX.TheBoneRun" >nul
   if not errorlevel 1 (
     echo %%A | findstr /c:"!" >nul
     if errorlevel 1 (
@@ -39,7 +39,7 @@ for /f "usebackq tokens=* delims=" %%A in (`"!WDAPP!" list 2^>nul`) do (
 
 if not defined PFN (
   echo.
-  echo Red Hood is not registered with wdapp right now.
+  echo The Bone Run is not registered with wdapp right now.
   echo That Windows message "the action is only valid for products that are currently installed"
   echo means Settings -^> Apps / Remove-AppxPackage cannot remove this GDK install.
   echo.
@@ -52,7 +52,7 @@ if not defined PFN (
 
 echo Found package: !PFN!
 echo.
-set /p CONFIRM=Uninstall Red Hood? [Y/n]
+set /p CONFIRM=Uninstall The Bone Run? [Y/n]
 if /i "!CONFIRM!"=="n" goto :CANCEL
 if /i "!CONFIRM!"=="no" goto :CANCEL
 
@@ -68,7 +68,7 @@ if not "!ERR!"=="0" (
   exit /b !ERR!
 )
 
-echo Red Hood was uninstalled.
+echo The Bone Run was uninstalled.
 echo You can delete leftover files in this folder if they remain.
 echo.
 pause
