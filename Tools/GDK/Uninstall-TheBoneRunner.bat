@@ -28,7 +28,7 @@ echo.
 echo Looking up installed The Bone Runner packages...
 set "PFN="
 for /f "usebackq tokens=* delims=" %%A in (`"!WDAPP!" list 2^>nul`) do (
-  echo %%A | findstr /i /c:"TheBoneRun" /c:"The Bone Runner" /c:"MazenX.TheBoneRun" >nul
+  echo %%A | findstr /i /c:"TheBoneRunner" /c:"The Bone Runner" /c:"MazenX.TheBoneRunner" /c:"TheBoneRun" /c:"MazenX.TheBoneRun" >nul
   if not errorlevel 1 (
     echo %%A | findstr /c:"!" >nul
     if errorlevel 1 (

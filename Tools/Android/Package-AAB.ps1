@@ -41,7 +41,7 @@ if (-not (Test-Path -LiteralPath $Project)) {
 
 New-Item -ItemType Directory -Force -Path $Archive | Out-Null
 Write-Host "Close Unreal Editor first if Live Coding is active."
-Write-Host "Needs local keystore: Build\Android\thebonerun-release.keystore"
+Write-Host "Needs local keystore: Build\Android\thebonerunner-release.keystore"
 Write-Host ""
 
 $argLine = @(
