@@ -55,12 +55,12 @@ if ($IcoSrc) {
 # Content is the payload folder — keep the default Explorer folder icon.
 
 $shell = New-Object -ComObject WScript.Shell
-$lnk = Join-Path $found.Title "The Bone Run.lnk"
+$lnk = Join-Path $found.Title "The Bone Runner.lnk"
 $sc = $shell.CreateShortcut($lnk)
 $sc.TargetPath = $found.Exe
 $sc.WorkingDirectory = $found.Content
 $sc.WindowStyle = 1
-$sc.Description = "The Bone Run"
+$sc.Description = "The Bone Runner"
 if ($IcoSrc) { $sc.IconLocation = (Join-Path $found.Title "TheBoneRun.ico") }
 $sc.Save()
 

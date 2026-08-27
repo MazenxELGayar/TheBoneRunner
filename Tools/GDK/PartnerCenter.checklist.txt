@@ -1,4 +1,4 @@
-The Bone Run — Partner Center (tracked checklist, no identity values)
+The Bone Runner — Partner Center (tracked checklist, no identity values)
 ====================================================================
 Identity details live ONLY in Config\UserEngine.ini (gitignored).
 Template: Config\UserEngine.ini.example

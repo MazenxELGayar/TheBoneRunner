@@ -1,4 +1,4 @@
-The Bone Run — Make the Microsoft Store package yourself
+The Bone Runner — Make the Microsoft Store package yourself
 ========================================================
 
 Store identity is still empty. Packaging needs Partner Center fields in
@@ -41,7 +41,7 @@ Config\UserEngine.ini (gitignored). Create the Store product first.
    Then: wdapp list  /  wdapp launch <AUMID>
 
 4) Upload yourself
-   Partner Center -> The Bone Run -> Packages -> upload the .msixvc
+   Partner Center -> The Bone Runner -> Packages -> upload the .msixvc
    Finish store listing / age rating / privacy, then Review and publish
 
 Notes

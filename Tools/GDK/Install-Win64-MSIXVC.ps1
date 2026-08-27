@@ -1,11 +1,11 @@
-# Install The Bone Run .msixvc via wdapp. Asks where to put the game.
+# Install The Bone Runner .msixvc via wdapp. Asks where to put the game.
 param(
     [string]$PackagePath,
     [string]$InstallFolder
 )
 
 $ErrorActionPreference = "Continue"
-$Host.UI.RawUI.WindowTitle = "The Bone Run GDK install"
+$Host.UI.RawUI.WindowTitle = "The Bone Runner GDK install"
 
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $DefaultDir = Join-Path $ProjectRoot "Saved\Packages\Windows\MSGameStore\Shipping"
@@ -47,7 +47,7 @@ $wdapp = Join-Path $env:GameDK "bin\wdapp.exe"
 if (-not (Test-Path -LiteralPath $wdapp)) { $wdapp = $GdkBin }
 
 Write-Host "========================================"
-Write-Host "The Bone Run - GDK local install"
+Write-Host "The Bone Runner - GDK local install"
 Write-Host "========================================"
 Write-Host "wdapp: $wdapp"
 Write-Host ""

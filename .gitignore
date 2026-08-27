@@ -18,7 +18,7 @@ Plugins/*/Binaries/
 Intermediate/
 Plugins/*/Intermediate/
 DerivedDataCache/
-Build/
+Build/*
 
 # Keep GDK store packaging assets tracked (override Build/ ignore)
 !Build/Windows/
@@ -26,10 +26,15 @@ Build/
 !Build/Windows/MSGaming/
 !Build/Windows/MSGaming/Resources/
 !Build/Windows/MSGaming/Resources/**
+Build/Windows/FileOpenOrder/
 !Build/Win64/
 !Build/Win64/MSGaming/
 !Build/Win64/MSGaming/Resources/
 !Build/Win64/MSGaming/Resources/**
+!Build/Android/
+Build/Android/**
+!Build/Android/res/
+!Build/Android/res/**
 
 # Local user / editor data
 Saved/
@@ -48,7 +53,6 @@ Packages/
 Archives/
 Build/Linux/
 Build/Mac/
-Build/Android/
 
 # GDK / Microsoft Store package artifacts (never commit)
 *.msixvc
@@ -78,7 +82,6 @@ xcuserdata/
 *.p12
 key.properties
 **/key.properties
-Build/Android/
 **/signing-credentials*.txt
 **/SigningConfig.xml
 Config/UserEngine.ini

@@ -2,7 +2,7 @@
 	"FileVersion": 3,
 	"EngineAssociation": "5.8",
 	"Category": "Games",
-	"Description": "A 2D game where you fight skeletons, avoid traps, and win.",
+	"Description": "The Bone Runner — a 2D game where you fight skeletons, avoid traps, and win.",
 	"Plugins": [
 		{
 			"Name": "ModelingToolsEditorMode",

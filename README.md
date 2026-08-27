@@ -1,4 +1,4 @@
-# The Bone Run
+# The Bone Runner
 
 A 2D Unreal Engine game. Fight skeletons, stay out of the traps, and make it through to win.
 

@@ -1,4 +1,4 @@
-The Bone Run — Phase 2 Xbox Series X|S (after Phase 1 PC package works)
+`The Bone Runner — Phase 2 Xbox Series X|S (after Phase 1 PC package works)
 ======================================================================
 
 Prerequisites (outside this repo)
