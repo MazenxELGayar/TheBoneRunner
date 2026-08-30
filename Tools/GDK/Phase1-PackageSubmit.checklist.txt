@@ -45,8 +45,11 @@ Config\UserEngine.ini (gitignored). Create the Store product first.
    Finish store listing / age rating / privacy, then Review and publish
 
 Notes
-  - This Partner Center product is Win32 Microsoft Store. Xbox / full Xbox services
-    still need ID@Xbox + concept approval.
+  - This Partner Center product is Win32 Microsoft Store without Xbox Live sign-in.
+    Do NOT set TitleId / MSAAppId in UserEngine.ini unless you add Xbox Live later.
+    After packaging, confirm Saved\Win64\Manifest\MicrosoftGame.config has no
+    <TitleId> or <MSAAppId> elements before uploading.
+  - Full Xbox services still need ID@Xbox + concept approval.
   - Store logos go in Build\Windows\MSGaming\Resources\
     To regenerate (once you have Icon.png / splash art):
       Tools\GDK\Generate-MSGamingResources.ps1

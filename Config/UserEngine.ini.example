@@ -1,6 +1,8 @@
 ; Template for Config/UserEngine.ini (gitignored).
 ; Copy identity fields here AFTER you create the Microsoft Store game in Partner Center.
 ; Game setup -> Identity details. Leave blank until then.
+; Leave TitleId / MSAAppId / PrimaryServiceConfigId blank unless you ship Xbox Live sign-in.
+; If those fields are set, MicrosoftGame.config triggers Xbox services and cert will test sign-in.
 
 [/Script/MSGamingSupport.MSGamingSettings]
 PackageName=
@@ -8,11 +10,7 @@ PublisherName=
 PublisherDisplayName=MazenX
 DefaultDisplayName=The Bone Runner
 StoreId=
-TitleId=
-PrimaryServiceConfigId=
-MSAAppId=
 PackageVersion=1.0.0.0
 
 [OnlineSubsystemGDK]
-bEnabled=True
-PrimaryServiceConfigId=
+bEnabled=False
