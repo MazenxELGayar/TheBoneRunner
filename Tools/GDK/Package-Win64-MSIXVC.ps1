@@ -72,6 +72,13 @@ if (-not (Test-Path -LiteralPath $netFx)) {
 
 New-Item -ItemType Directory -Force -Path $Archive | Out-Null
 
+. (Join-Path $PSScriptRoot "Repair-UatScriptModules.ps1")
+if (-not (Repair-UatScriptModules -EngineRoot $UeRoot)) {
+    Write-Host "ERROR: UAT ScriptModules repair failed. Packaging cannot start." -ForegroundColor Red
+    if ($pause) { Read-Host "Press Enter to close" | Out-Null }
+    exit 1
+}
+
 Write-Host "Close Unreal Editor first if Live Coding is active."
 Write-Host "Progress updates while UAT runs. Cook can take a long time."
 Write-Host "Store IDs must be filled in Config\UserEngine.ini before packaging will succeed."
