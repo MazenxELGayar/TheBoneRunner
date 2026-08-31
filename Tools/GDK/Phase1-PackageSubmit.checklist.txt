@@ -46,6 +46,8 @@ Config\UserEngine.ini (gitignored). Create the Store product first.
 
 Notes
   - This Partner Center product is Win32 Microsoft Store without Xbox Live sign-in.
+  - PC-only Microsoft Store (no Xbox Live): keep bUseSimplifiedUserModel=False in DefaultEngine.ini
+    so MicrosoftGame.config omits AdvancedUserModel (GDK requires TitleId + MSAAppId if that element is present).
     Do NOT set TitleId / MSAAppId in UserEngine.ini unless you add Xbox Live later.
     After packaging, confirm Saved\Win64\Manifest\MicrosoftGame.config has no
     <TitleId> or <MSAAppId> elements before uploading.
